@@ -7,5 +7,6 @@
 
 void cmd_pwd(void);
 void cmd_help(void);
+void cmd_cd(const char *path);
 
 #endif //MYSHELL_COMMANDS_H

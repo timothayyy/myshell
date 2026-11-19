@@ -1,4 +1,4 @@
-
+#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include "include/commands.h"
@@ -26,6 +26,12 @@ int main(void) {
         if (strcmp(input, "pwd") == 0) {
             cmd_pwd();
         }
+        else if (strcmp(input, "cd") == 0) {
+            cmd_cd(NULL);
+        }
+        else if (strncmp(input, "cd ", 3) == 0) {
+            cmd_cd(input + 3);
+        }
         else if (strcmp(input, "help") == 0) {
             cmd_help();
         }
@@ -33,7 +39,6 @@ int main(void) {
             running = 0;
         }
         else if (input[0] == '\0') {
-            continue;
         }
         else {
             printf("Unknown command: %s\n", input);
