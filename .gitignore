@@ -1,0 +1,45 @@
+# CLion / JetBrains
+.idea/
+*.iml
+
+# CMake build directories
+cmake-build-*/
+build/
+cmake-build-debug/
+cmake-build-release/
+
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+Makefile
+
+# Compiled binaries and object files
+*.o
+*.obj
+*.a
+*.so
+*.so.*
+*.out
+*.exe
+
+# Debugging and profiling
+*.core
+core
+core.*
+*.gcda
+*.gcno
+*.gcov
+*.profraw
+*.profdata
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
