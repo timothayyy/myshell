@@ -1,7 +1,7 @@
+
 #include <stdio.h>
 #include <string.h>
-#include <unistd.h>
-#include <limits.h>
+#include "include/commands.h"
 
 int main(void) {
 
@@ -9,30 +9,36 @@ int main(void) {
     int running = 1;
 
     while (running) {
-        printf("> ");
 
-        if (fgets(input, sizeof(input), stdin) == NULL) break;
+        // Display shell prompt
+        printf("myshell> ");
+        fflush(stdout);
 
+        // Read user input
+        if (fgets(input, sizeof(input), stdin) == NULL) {
+            break;
+        }
 
+        // Remove trailing newline
         input[strcspn(input, "\n")] = '\0';
 
-       if (strcmp(input, "pwd") == 0) {
-           char cwd[PATH_MAX];
-           if (getcwd(cwd, sizeof(cwd)) != NULL) {
-               printf("%s\n", cwd);
-           } else {
-               perror("getcwd");
-           }
-       }
+        // Identify and execute commands
+        if (strcmp(input, "pwd") == 0) {
+            cmd_pwd();
+        }
+        else if (strcmp(input, "help") == 0) {
+            cmd_help();
+        }
         else if (strcmp(input, "quit") == 0) {
             running = 0;
         }
-        else if (strcmp(input, "help") == 0) {
-            printf("help\n");
-        } else {
-            printf("Unknown command\n");
+        else if (input[0] == '\0') {
+            continue;
         }
-
+        else {
+            printf("Unknown command: %s\n", input);
+        }
     }
+
     return 0;
 }
