@@ -129,7 +129,7 @@ myshell/
 - [x] cd
 
 ### Phase 2 — Filesystem Exploration
-- [ ] ls
+- [x] ls
 - [ ] cat
 - [ ] mkdir
 - [ ] touch
