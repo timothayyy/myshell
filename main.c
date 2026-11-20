@@ -32,6 +32,9 @@ int main(void) {
         else if (strncmp(input, "cd ", 3) == 0) {
             cmd_cd(input + 3);
         }
+        else if (strcmp(input, "ls") == 0) {
+            file_ls();
+        }
         else if (strcmp(input, "help") == 0) {
             cmd_help();
         }
